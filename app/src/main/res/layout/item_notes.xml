@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:id="@+id/main_notes"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_bluelight2"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Notes title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/note_content"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sapien lorem, bibendum eget est sed, tristique mollis mauris. Aliquam vel dolor pellentesque, feugiat tellus eget, viverra justo. Proin posuere at dolor nec ultricies. Maecenas ut arcu in diam malesuada eleifend. Etiam sit amet odio auctor, convallis ante sed, pharetra enim. "
+            app:layout_constraintTop_toBottomOf="@id/note_title"
+            app:layout_constraintStart_toStartOf="@id/note_title"
+            />
+
+        <ImageView
+            android:id="@+id/btn_edit"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintBottom_toBottomOf="@id/note_content"
+            app:layout_constraintEnd_toStartOf="@id/btn_delete"
+            app:layout_constraintStart_toEndOf="@id/note_content"
+            app:layout_constraintTop_toTopOf="@id/note_content"
+            app:layout_constraintVertical_bias="0.238" />
+
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/trash_icon"
+            app:layout_constraintBottom_toBottomOf="@id/btn_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_edit"
+            app:layout_constraintTop_toTopOf="@id/btn_edit"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

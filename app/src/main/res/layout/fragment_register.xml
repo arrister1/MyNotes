@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RegisterFragment">
+
+    <ImageView
+        android:id="@+id/login_img"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/icon_front"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_regis_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Hi Buddy, Welcome to My Notes"
+        android:textColor="@color/blue3"
+
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/login_img"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@id/login_img"
+        app:layout_constraintTop_toBottomOf="@id/login_img" />
+
+    <TextView
+        android:id="@+id/tv_regis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Enter your account information"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_regis_title"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/tv_regis_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_regis_title" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_regis_uname"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/tv_regis_title"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@id/tv_regis_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_regis" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_regis_email"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_regis_uname"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/et_regis_uname"
+        app:layout_constraintTop_toBottomOf="@+id/et_regis_uname" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_regis_pass1"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_regis_email"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/et_regis_email"
+        app:layout_constraintTop_toBottomOf="@+id/et_regis_email" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_regis_pass2"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/et_regis_pass1"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@id/et_regis_pass1"
+        app:layout_constraintTop_toBottomOf="@id/et_regis_pass1" />
+
+    <Button
+        android:id="@+id/btn_regis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/blue4"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="Create account"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/et_regis_pass2"
+        app:layout_constraintStart_toStartOf="@id/et_regis_pass2"
+        app:layout_constraintTop_toBottomOf="@id/et_regis_pass2" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
