@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginHorizontal="25dp"
-    tools:context=".LoginFragment">
+    tools:context=".ui.user.LoginFragment">
 
     <ImageView
         android:id="@+id/login_img"
@@ -49,7 +48,7 @@
         android:id="@+id/login_email"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="20dp"
         android:hint="Enter email"
         app:layout_constraintEnd_toEndOf="@id/tv_regis_title"
@@ -68,9 +67,9 @@
         android:id="@+id/login_pass"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="15dp"
-
+        app:passwordToggleEnabled="true"
         android:hint="Enter password"
         app:layout_constraintEnd_toEndOf="@+id/login_email"
         app:layout_constraintHorizontal_bias="0.502"
@@ -87,7 +86,7 @@
 
 
     <Button
-        android:id="@+id/btn_regis"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
@@ -110,8 +109,8 @@
         android:text="Don't have any account yet?"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintEnd_toStartOf="@+id/tv_login_reg"
-        app:layout_constraintStart_toStartOf="@+id/btn_regis"
-        app:layout_constraintTop_toBottomOf="@+id/btn_regis" />
+        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
     <TextView
         android:id="@+id/tv_login_reg"
         android:layout_width="wrap_content"
@@ -121,9 +120,9 @@
         android:text="Register"
         android:fontFamily="@font/poppins_semibold"
         android:textColor="@color/blue2"
-        app:layout_constraintEnd_toEndOf="@+id/btn_regis"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
         app:layout_constraintStart_toEndOf="@+id/tv_login_acc"
-        app:layout_constraintTop_toBottomOf="@+id/btn_regis"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
 
         />
