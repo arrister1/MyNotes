@@ -30,12 +30,12 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnLogin.setOnClickListener {
-            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_homeFragment)
-        }
-
-        binding.tvRegis.setOnClickListener{
-            view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
-    }
-}
+//        binding.btnLogin.setOnClickListener {
+//            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_homeFragment)
+//        }
+//
+//        binding.tvRegis.setOnClickListener{
+//            view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+//        }
+//    }
+}}

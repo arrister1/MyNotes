@@ -11,6 +11,14 @@ class MainViewModel(application: Application): ViewModel() {
 
     fun getAllNote(): LiveData<List<Note>> = mNoteRepository.getAllNotes()
 
+    fun insert(note: Note){
+        mNoteRepository.insert(note)
+    }
+
+    fun update(note: Note){
+        mNoteRepository.update(note)
+    }
+
     fun delete(note: Note) {
         mNoteRepository.delete(note)
     }
