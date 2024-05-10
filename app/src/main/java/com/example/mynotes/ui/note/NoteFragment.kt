@@ -51,6 +51,10 @@ class NoteFragment : Fragment() {
             currentNote = Note()
         }
 
+        binding.btnBack.setOnClickListener{
+            view.findNavController().popBackStack()
+        }
+
         binding?.btnCreate?.setOnClickListener {
             val title = binding?.notesInputTitle?.text.toString().trim()
             val description = binding?.notesInputDesc?.text.toString().trim()

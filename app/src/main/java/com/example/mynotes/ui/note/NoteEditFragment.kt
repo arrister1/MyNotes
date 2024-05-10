@@ -45,6 +45,10 @@ class NoteEditFragment : Fragment(R.layout.fragment_note_edit) {
         binding.notesInputTitle.setText(currentNote.title)
         binding.notesInputDesc.setText(currentNote.description)
 
+        binding.btnBack.setOnClickListener{
+            view.findNavController().popBackStack()
+        }
+
         binding.btnEdit.setOnClickListener {
             val noteTitle = binding.notesInputTitle.text.toString().trim()
             val noteDesc = binding.notesInputDesc.text.toString().trim()
