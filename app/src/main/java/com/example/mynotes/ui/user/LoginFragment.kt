@@ -1,20 +1,27 @@
 package com.example.mynotes.ui.user
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 import com.example.mynotes.R
 import com.example.mynotes.databinding.FragmentLoginBinding
+import com.example.mynotes.helper.Constant
+import com.example.mynotes.helper.UserSharedPreference
 
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding  get() = _binding!!
+
+    lateinit var sharedPref: UserSharedPreference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,20 +29,57 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return  binding.root
+
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.btnLogin.setOnClickListener {
-//            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_homeFragment)
-//        }
+        sharedPref = UserSharedPreference(requireActivity())
+
+        binding.btnLogin.setOnClickListener {
+            if(binding.etLoginEmail.text!!.isNotEmpty()){
+                sharedPref.put(Constant.PREF_EMAIL, binding.etLoginEmail.text.toString())
+                sharedPref.put(Constant.PREF_PASS, binding.etLoginPass.text.toString())
+                sharedPref.put(Constant.PREF_IS_LOGIN, true)
+
+
+                Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
+                view.findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+
+            }
+
+
+
+
+
+        }
+//            val preferences: SharedPreferences = requireActivity().getSharedPreferences("MYPREFS", Context.MODE_PRIVATE)
+//            val editor: SharedPreferences.Editor = preferences.edit()
+//            val email = binding.etLoginEmail.text.toString()
+//            val pass = binding.etLoginPass.text.toString()
+//            val userData: String? = preferences.getString(email + pass + "data", "Invalid email or password")
 //
-//        binding.tvRegis.setOnClickListener{
-//            view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+//            editor.putString("display", userData)
+//            editor.apply()
+//
+//            Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
+//
+//            view.findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
 //        }
-//    }
-}}
+
+        binding.tvLoginReg.setOnClickListener{
+            view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(sharedPref.getBoolean(Constant.PREF_IS_LOGIN)) {
+            requireView().findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+
+        }
+    }
+}

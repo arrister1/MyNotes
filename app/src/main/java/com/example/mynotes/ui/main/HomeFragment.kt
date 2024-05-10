@@ -1,17 +1,22 @@
 package com.example.mynotes.ui.main
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.mynotes.R
 import com.example.mynotes.databinding.FragmentHomeBinding
+import com.example.mynotes.helper.Constant
+import com.example.mynotes.helper.UserSharedPreference
 import com.example.mynotes.model.Note
 
 
@@ -23,6 +28,9 @@ class HomeFragment : Fragment() {
     private lateinit var noteAdapter: NotesAdapter
 
     private lateinit var currentNote: Note
+
+    lateinit var sharedPref: UserSharedPreference
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +47,21 @@ class HomeFragment : Fragment() {
 
         homeMainViewModel = (activity as MainActivity)
             . mainViewModel
+
+        sharedPref = UserSharedPreference(requireActivity())
+
+        binding.tvUname.text = sharedPref.getString(Constant.PREF_USERNAME)
+
+        binding.tvLogout.setOnClickListener {
+            sharedPref.clear()
+            Toast.makeText(context, "Logged out", Toast.LENGTH_SHORT).show()
+            view.findNavController().popBackStack(R.id.loginFragment, false)
+        }
+
+//        val preferences: SharedPreferences = requireActivity().getSharedPreferences("MYPREFS", Context.MODE_PRIVATE)
+//        val display: String? = preferences.getString("display", "")
+//        binding.tvUname.text = display
+
 
         binding.btnAdd.setOnClickListener{
             it.findNavController().navigate(R.id.action_homeFragment_to_noteFragment)

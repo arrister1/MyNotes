@@ -55,6 +55,8 @@
             android:id="@+id/btn_delete"
             android:layout_width="18dp"
             android:layout_height="18dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
             android:src="@drawable/trash_icon"
             app:layout_constraintBottom_toBottomOf="@id/btn_edit"
             app:layout_constraintEnd_toEndOf="parent"

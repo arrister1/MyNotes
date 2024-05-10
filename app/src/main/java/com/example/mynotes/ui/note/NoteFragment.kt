@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.mynotes.R
 import com.example.mynotes.databinding.FragmentNoteBinding
-import com.example.mynotes.helper.DateHelper
 import com.example.mynotes.model.Note
 import com.example.mynotes.ui.main.MainActivity
 import com.example.mynotes.ui.main.MainViewModel
@@ -47,7 +45,6 @@ class NoteFragment : Fragment() {
         noteViewModel = (activity as MainActivity).mainViewModel
         noteView = view
 
-        //currentNote = intent.getParcelableExtra(EXTRA_NOTE)
         if(currentNote != null) {
             isEdit = true
         } else {
@@ -74,9 +71,6 @@ class NoteFragment : Fragment() {
                         noteViewModel.update(currentNote as Note)
                         showToast("Note has changed")
                     } else {
-                        currentNote.let { note ->
-                            note?.date = DateHelper.getCurrentDate()
-                        }
                         noteViewModel.insert(currentNote as Note)
                         showToast("Note has added")
                         view.findNavController().popBackStack(R.id.homeFragment, false)

@@ -8,17 +8,29 @@
     tools:context=".ui.main.HomeFragment">
 
     <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_black"
+        android:text="Welcome, "
+        android:layout_marginStart="20dp"
+        android:textColor="@color/blue4"
+        android:textSize="15sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/tv_uname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:text="Welcome, Noori"
+        android:fontFamily="@font/poppins_black"
+        android:text="Noori"
         android:textColor="@color/blue4"
-        android:fontFamily="@font/poppins_semibold"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_logout"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/tv_welcome"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -28,10 +40,9 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:text="Logout"
-        android:fontFamily="@font/poppins_semibold"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@id/tv_uname"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -44,7 +55,7 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@id/tv_logout"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="@id/tv_uname"
         app:layout_constraintTop_toBottomOf="@id/tv_uname" />
 
