@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         homeMainViewModel = (activity as MainActivity)
-            . mainViewModel
+            .mainViewModel
 
         sharedPref = UserSharedPreference(requireActivity())
 
@@ -58,12 +58,9 @@ class HomeFragment : Fragment() {
             view.findNavController().popBackStack(R.id.loginFragment, false)
         }
 
-//        val preferences: SharedPreferences = requireActivity().getSharedPreferences("MYPREFS", Context.MODE_PRIVATE)
-//        val display: String? = preferences.getString("display", "")
-//        binding.tvUname.text = display
 
 
-        binding.btnAdd.setOnClickListener{
+        binding.btnAdd.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_noteFragment)
         }
         setHomeRecycleView()
@@ -71,17 +68,17 @@ class HomeFragment : Fragment() {
     }
 
     private fun updateNoteList(note: List<Note>?) {
-        if (note != null){
-            if(note.isNotEmpty()) {
+        if (note != null) {
+            if (note.isNotEmpty()) {
                 binding.emptyNotesImage.visibility = View.GONE
-            } else{
-                 binding.emptyNotesImage.visibility = View.VISIBLE
+            } else {
+                binding.emptyNotesImage.visibility = View.VISIBLE
                 binding.homeRv.visibility = View.GONE
             }
         }
     }
 
-    private fun setHomeRecycleView(){
+    private fun setHomeRecycleView() {
         noteAdapter = NotesAdapter(requireContext(), homeMainViewModel)
         binding.homeRv.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -90,21 +87,20 @@ class HomeFragment : Fragment() {
         }
 
         activity?.let {
-            homeMainViewModel.getAllNote().observe(viewLifecycleOwner){ noteList ->
+            homeMainViewModel.getAllNote().observe(viewLifecycleOwner) { noteList ->
                 noteAdapter.setNoteList(noteList)
                 updateNoteList(noteList)
             }
         }
     }
 
-    private fun deleteNote(){
+    private fun deleteNote() {
         AlertDialog.Builder(requireActivity()).apply {
             setTitle("Delete note")
             setMessage("Do you want to delete this note?")
-            setPositiveButton("Delete"){_,_ ->
+            setPositiveButton("Delete") { _, _ ->
                 homeMainViewModel.delete(currentNote)
-                Toast.makeText(context, "Not has been deleted", Toast.LENGTH_SHORT)
-               // view?.findNavController()?.popBackStack(R.id.homeFragment, false)
+                Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT)
             }
             setNegativeButton("Cancel", null)
         }.create().show()
@@ -114,7 +110,6 @@ class HomeFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 
 
 }

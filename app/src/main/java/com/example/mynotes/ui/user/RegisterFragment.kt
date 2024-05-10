@@ -39,16 +39,8 @@ class RegisterFragment : Fragment() {
 
 
         binding.btnRegis.setOnClickListener {
-//            val preferences: SharedPreferences = requireActivity().getSharedPreferences("MYPREFS", Context.MODE_PRIVATE)
-//            val editor: SharedPreferences.Editor = preferences.edit()
-//            val uname: String = binding.etRegisUname.text.toString()
-//            val email: String = binding.etRegisEmail.text.toString()
-//            val pass1: String = binding.etRegisPass1.text.toString()
-//            val pass2: String = binding.etRegisPass2.text.toString()
-//
-//            editor.putString(uname + pass1 + pass2 + "data", uname + "\n" + email)
-//            editor.apply()
-            if (binding.etRegisUname.text!!.isNotEmpty()){
+
+            if (binding.etRegisUname.text!!.isNotEmpty()) {
                 sharedPref.put(Constant.PREF_USERNAME, binding.etRegisUname.text.toString())
                 sharedPref.put(Constant.PREF_EMAIL, binding.etRegisEmail.text.toString())
                 sharedPref.put(Constant.PREF_PASS, binding.etRegisPass1.text.toString())

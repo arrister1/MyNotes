@@ -19,7 +19,7 @@ import com.example.mynotes.helper.UserSharedPreference
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
-    private val binding  get() = _binding!!
+    private val binding get() = _binding!!
 
     lateinit var sharedPref: UserSharedPreference
 
@@ -29,7 +29,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return  binding.root
+        return binding.root
 
     }
 
@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
         sharedPref = UserSharedPreference(requireActivity())
 
         binding.btnLogin.setOnClickListener {
-            if(binding.etLoginEmail.text!!.isNotEmpty()){
+            if (binding.etLoginEmail.text!!.isNotEmpty()) {
                 sharedPref.put(Constant.PREF_EMAIL, binding.etLoginEmail.text.toString())
                 sharedPref.put(Constant.PREF_PASS, binding.etLoginPass.text.toString())
                 sharedPref.put(Constant.PREF_IS_LOGIN, true)
@@ -52,32 +52,16 @@ class LoginFragment : Fragment() {
             }
 
 
-
-
-
         }
-//            val preferences: SharedPreferences = requireActivity().getSharedPreferences("MYPREFS", Context.MODE_PRIVATE)
-//            val editor: SharedPreferences.Editor = preferences.edit()
-//            val email = binding.etLoginEmail.text.toString()
-//            val pass = binding.etLoginPass.text.toString()
-//            val userData: String? = preferences.getString(email + pass + "data", "Invalid email or password")
-//
-//            editor.putString("display", userData)
-//            editor.apply()
-//
-//            Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
-//
-//            view.findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-//        }
 
-        binding.tvLoginReg.setOnClickListener{
+        binding.tvLoginReg.setOnClickListener {
             view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        if(sharedPref.getBoolean(Constant.PREF_IS_LOGIN)) {
+        if (sharedPref.getBoolean(Constant.PREF_IS_LOGIN)) {
             requireView().findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
 
         }

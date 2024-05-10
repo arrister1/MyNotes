@@ -72,7 +72,7 @@ class NoteFragment : Fragment() {
                         showToast("Note has changed")
                     } else {
                         noteViewModel.insert(currentNote as Note)
-                        showToast("Note has added")
+                        showToast("Note has ben added")
                         view.findNavController().popBackStack(R.id.homeFragment, false)
                     }
                }

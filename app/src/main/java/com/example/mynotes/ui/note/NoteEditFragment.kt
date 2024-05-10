@@ -53,25 +53,14 @@ class NoteEditFragment : Fragment(R.layout.fragment_note_edit) {
                 val note = Note(currentNote.id, noteTitle, noteDesc)
                 noteViewModel.update(note)
                 view.findNavController().popBackStack(R.id.homeFragment, false)
+                Toast.makeText(context, "Note has been edited", Toast.LENGTH_SHORT).show()
 
             } else {
                 Toast.makeText(context, "Title can't be empty", Toast.LENGTH_SHORT).show()
             }
         }
 
-    }
 
-    private fun deleteNote(){
-        AlertDialog.Builder(requireActivity()).apply {
-            setTitle("Delete note")
-            setMessage("Do you want to delete this note?")
-            setPositiveButton("Delete"){_,_ ->
-                noteViewModel.delete(currentNote)
-                Toast.makeText(context, "Not has been deleted", Toast.LENGTH_SHORT)
-                view?.findNavController()?.popBackStack(R.id.homeFragment, false)
-            }
-            setNegativeButton("Cancel", null)
-        }.create().show()
     }
 
     override fun onDestroy() {

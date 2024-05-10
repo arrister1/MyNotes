@@ -17,11 +17,13 @@ import com.example.mynotes.databinding.ItemNotesBinding
 import com.example.mynotes.helper.NoteDiffCallback
 import com.example.mynotes.model.Note
 
- class NotesAdapter(private val context: Context, private val noteViewModel: MainViewModel) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
+class NotesAdapter(private val context: Context, private val noteViewModel: MainViewModel) :
+    RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     private val noteList = ArrayList<Note>()
-   //private lateinit var noteViewModel: MainViewModel
+
+    //private lateinit var noteViewModel: MainViewModel
     private var note: Note? = null
-    private  lateinit var noteView: View
+    private lateinit var noteView: View
 
     fun setNoteList(noteList: List<Note>) {
         val diffCallback = NoteDiffCallback(this.noteList, noteList)
@@ -66,42 +68,42 @@ import com.example.mynotes.model.Note
 
     }
 
-     private fun showDeleteDialog(type: Int, note: Note?) {
-         if (note != null) {
-             val isDialogDelete = type == ALERT_DIALOG_DELETE
-             val dialogTitle: String
-             val dialogMessage: String
-             if (isDialogDelete) {
-                 dialogTitle = "Delete"
-                 dialogMessage =  "Do you want to delete this note?"
-             } else {
-                 dialogMessage = "Do you want to delete this note?"
-                 dialogTitle = "Delete"
-             }
-             var alertDialogBuilder = AlertDialog.Builder(context)
-             with(alertDialogBuilder) {
-                 setTitle(dialogTitle)
-                 setMessage(dialogMessage)
-                 setCancelable(false)
-                 setPositiveButton("Yes") { _, _ ->
-                     if (isDialogDelete) {
-                         noteViewModel.delete(note)
-                         Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show()
-                         //showToast(getString(R.string.delete))
-                     }
-                 }
-                 setNegativeButton("No") { dialog, _ -> dialog.cancel() }
-             }
-             val alertDialog = alertDialogBuilder.create()
-             alertDialog.show()
-         } else {
-             Toast.makeText(context, "Note is null", Toast.LENGTH_SHORT).show()
-         }
-     }
+    private fun showDeleteDialog(type: Int, note: Note?) {
+        if (note != null) {
+            val isDialogDelete = type == ALERT_DIALOG_DELETE
+            val dialogTitle: String
+            val dialogMessage: String
+            if (isDialogDelete) {
+                dialogTitle = "Delete"
+                dialogMessage = "Do you want to delete this note?"
+            } else {
+                dialogMessage = "Do you want to delete this note?"
+                dialogTitle = "Delete"
+            }
+            var alertDialogBuilder = AlertDialog.Builder(context)
+            with(alertDialogBuilder) {
+                setTitle(dialogTitle)
+                setMessage(dialogMessage)
+                setCancelable(false)
+                setPositiveButton("Yes") { _, _ ->
+                    if (isDialogDelete) {
+                        noteViewModel.delete(note)
+                        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show()
+                        //showToast(getString(R.string.delete))
+                    }
+                }
+                setNegativeButton("No") { dialog, _ -> dialog.cancel() }
+            }
+            val alertDialog = alertDialogBuilder.create()
+            alertDialog.show()
+        } else {
+            Toast.makeText(context, "Note is null", Toast.LENGTH_SHORT).show()
+        }
+    }
 
 
-     companion object {
-    const val ALERT_DIALOG_CLOSE = 10
-    const val ALERT_DIALOG_DELETE = 20
-}
+    companion object {
+        const val ALERT_DIALOG_CLOSE = 10
+        const val ALERT_DIALOG_DELETE = 20
+    }
 }
