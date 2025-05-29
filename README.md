@@ -8,7 +8,6 @@ MyNotes is a simple Android note-taking application that allows users to manage 
 
 - 🔐 User authentication (Register, Login)
 - 📝 Add, edit, and delete personal notes
-- 📄 View detail page of each note
 - 💾 Local note storage using ROOM Database
 - 🔐 Session management using SharedPreferences
 
