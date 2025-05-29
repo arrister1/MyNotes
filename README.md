@@ -34,7 +34,7 @@ MyNotes is a simple Android note-taking application that allows users to manage 
 
 1. Clone this repository  
    ```bash
-   git clone https://github.com/yourusername/mynotes-app.git
+   git clone https://github.com/arrister1/MyNotes.git
    ```
 2. Open the project in Android Studio
 3. Run on emulator or physical device (API 21+)
