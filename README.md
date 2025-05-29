@@ -1,6 +1,6 @@
 # 📝 MyNotes – Note-Taking App
 
-MyNotes is a simple Android note-taking application that allows users to manage personal notes with offline support. Built as an individual project during Synrgy Academy Batch 7, this app demonstrates basic CRUD functionality with MVVM architecture and ROOM database.
+MyNotes is a simple Android note-taking application that allows users to manage personal notes with offline support. Built as an individual project during Synrgy Academy, this app demonstrates basic CRUD functionality with MVVM architecture and ROOM database.
 
 ---
 
@@ -51,7 +51,7 @@ MyNotes is a simple Android note-taking application that allows users to manage 
 ## 🙋‍♂️ Author
 
 👤 Nurul Maulidha Effendi
-📧 nurulm1017@gmail.com  
+📧 nurulm.1706@gmail.com  
 🔗 [[LinkedIn](https://www.linkedin.com/in/nurul-maulidha/)]
 
 ---
